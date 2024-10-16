@@ -3,7 +3,7 @@
 function add(data){
     const numbers = data.trim();
     let delimiter = '';
-    
+
     if (numbers.startsWith('//') && numbers.includes('\n')) {
         delimiter = numbers.split('\n')[0].split("//")[1];
     }
@@ -30,13 +30,29 @@ function add(data){
     return total;
 }
 
+document.getElementById('numberInput').addEventListener('input', function(e){
+    outputContent.innerHTML = '';
+})
 
-try {
-    const result = add("//;\n1,2,3,4\n-5,,30")
-    console.log(result)
-} catch (error) {
-    console.log(error)
-}
-
-
+document.getElementById('numberForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let inputString = document.getElementById('numberInput').value;
+    const output = document.getElementById('output');
+    const outputContent = document.getElementById('outputContent');
+    
+    try {
+        // const result = add("//;\n1,2,3,4\n-5,,30")
+        // const result = add("//;\n1,2,3,4\n-5,,30")
+        // const result = add("//;\n1,2,3,4\n-5,,30")
+        // inputString = "//;\n1,2,3,4\n-5,,30"
+        const result = add(inputString)
+        outputContent.innerHTML = `<p><strong>${result}</strong></p>`;
+        console.log(result)
+    } catch (error) {
+        outputContent.innerHTML = `<p class="text-danger"><strong>${error}</strong></p>`;
+        console.log(error)
+    }
+    
+    output.classList.remove('d-none');
+});
 

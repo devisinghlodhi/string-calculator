@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <h4 class="text-center">STRING CALCULATOR</h4>
+            <div class="col-md-8">
+                <form id="numberForm" class="mb-3">
+                    <div class="mb-3">
+                        <textarea 
+                            id="numberInput"
+                            class="form-control"
+                            rows="4"
+                            placeholder="Enter numbers" 
+                            aria-label="Enter multiple lines of numbers"
+                            inputmode="numeric"
+                        ></textarea>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    </div>
+                </form>
+                <div id="output" class="card d-none">
+                    <div class="card-body">
+                        <h5 class="card-title">Output :</h5>
+                        <div id="outputContent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+  <script src="/script.js"></script>
+</body>
+</html>
