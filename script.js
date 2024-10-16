@@ -1,9 +1,10 @@
 
 
-function add(numbers){
-
-    let delimiter = null;
-    if (numbers.startsWith('//')) {
+function add(data){
+    const numbers = data.trim();
+    let delimiter = '';
+    
+    if (numbers.startsWith('//') && numbers.includes('\n')) {
         delimiter = numbers.split('\n')[0].split("//")[1];
     }
 
@@ -31,7 +32,7 @@ function add(numbers){
 
 
 try {
-    const result = add("//;\n1,2,3,4\n5,6;7,30")
+    const result = add("//;\n1,2,3,4\n-5,,30")
     console.log(result)
 } catch (error) {
     console.log(error)
