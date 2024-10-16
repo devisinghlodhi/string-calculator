@@ -1,7 +1,14 @@
 
 
 function add(numbers){
-    const newNumbersArray = numbers.split(/[,\n]/);
+
+    let delimiter = null;
+    if (numbers.startsWith('//')) {
+        delimiter = numbers.split('\n')[0].split("//")[1];
+    }
+
+    const regex = new RegExp(`[,\n${delimiter}]`);
+    const newNumbersArray = numbers.split(regex);
 
     return newNumbersArray.reduce((acc, value)=>{
         if(!isNaN(Number(value))){
@@ -13,6 +20,6 @@ function add(numbers){
 
 
 
-const result = add("1,2,3,4\n5")
+const result = add("//;\n1,2,3,4\n5,-6;7")
 console.log(result)
 
